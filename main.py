@@ -1,10 +1,26 @@
-def fact_rec(n):
-  if n==0 or n==1:
-    return 1
-  else:
-    return n*fact_rec(n-1)
+class Bank:
+    def __init__(self):
+        self.balance = 0
+        print ("The account is created")
+        
+    def deposit(self):
+        amount = float(input("Enter the amount to be deposit: "))
+        self.balance = self.balance + amount
+        print ("The deposit is successful and the balance in the account is %f" % self.balance)
+    
+    def withdraw(self):
+        amount = float(input("Enter the amount to withdraw: "))
+        if (self.balance >= amount):
+            self.balance = self.balance - amount
+            print ("The withdraw is successful and the balance is %f" % self.balance)
+        else:
+            print ('Insuficient Balance')
+    
+    def enquiry(self):
+        print ("Balance in the account is %f" % self.balance)
+        
 
-number=5
-res = fact_rec(number)
-
-print("the factorial of {} is {} .".format(number,res))
+acc = Bank()
+acc.deposit()
+acc.withdraw()
+acc.enquiry()
